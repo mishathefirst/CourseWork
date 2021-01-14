@@ -13,22 +13,26 @@
         <div class="dropdown">
             <button class="dropbtn">Автомобили в наличии</button>
             <div class="dropdown-content">
+                <a href="for_sale_cars.php">Все</a>
                 <a href="for_sale_cars.php?country=RUSSIA">СССР/Россия</a>
                 <a href="for_sale_cars.php?country=UK">Великобритания</a>
+                <a href="for_sale_cars.php?country=USA">США</a>
             </div>
         </div>
         <div class="dropdown">
             <button class="dropbtn">Обслуживание</button>
             <div class="dropdown-content">
-                <a href="for_sale_cars.php?country=RUSSIA">Обслуживаемые автомобили</a>
-                <a href="for_sale_cars.php?country=UK">Великобритания</a>
+                <a href="serviced_cars.php">Обслуживаемые автомобили</a>
+                <a href="service_staff.php">Персонал</a>
             </div>
         </div>
         <div class="dropdown">
-            <button class="dropbtn">Запасные части и расходники</button>
+            <button class="dropbtn">ЗИП</button>
             <div class="dropdown-content">
-                <a href="for_sale_cars.php?country=RUSSIA">СССР/Россия</a>
-                <a href="for_sale_cars.php?country=UK">Великобритания</a>
+                <a href="repair_parts.php">Запасные части</a>
+                <a href="supplies.php">Расходные материалы</a>
+                <a href="suppliers_and_producers.php">Поставщики</a>
+                <a href="order.php">Сделать заказ</a>
             </div>
         </div>
     </div>
