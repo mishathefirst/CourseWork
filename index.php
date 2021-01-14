@@ -8,7 +8,7 @@
 <body>
 <header>
     <div class="navbar">
-        <a class="current" href="index.php">Главная</a>
+        <a href="index.php">Главная</a>
         <a href="list_of_vehicles.php">Модели автомобилей</a>
         <div class="dropdown">
             <button class="dropbtn">Автомобили в наличии</button>

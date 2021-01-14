@@ -71,3 +71,8 @@
 .current {
     background-color: darkblue;
 }
+
+
+.dropbtn .current {
+    background-color: darkblue;
+}

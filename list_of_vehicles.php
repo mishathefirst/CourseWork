@@ -7,24 +7,35 @@
 </head>
 <body>
 <header>
-
     <div class="navbar">
         <a href="index.php">Главная</a>
+        <a href="list_of_vehicles.php">Модели автомобилей</a>
         <div class="dropdown">
-            <button class="dropbtn">Автомобили в наличии
-                <!--<i class="fa fa-caret-down"></i>-->
-            </button>
+            <button class="dropbtn">Автомобили в наличии</button>
             <div class="dropdown-content">
-                <a href="list_of_vehicles.php?country=RUSSIA">Российские</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
+                <a href="for_sale_cars.php">Все</a>
+                <a href="for_sale_cars.php?country=RUSSIA">СССР/Россия</a>
+                <a href="for_sale_cars.php?country=UK">Великобритания</a>
+                <a href="for_sale_cars.php?country=USA">США</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Обслуживание</button>
+            <div class="dropdown-content">
+                <a href="serviced_cars.php">Обслуживаемые автомобили</a>
+                <a href="service_staff.php">Персонал</a>
+            </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">ЗИП</button>
+            <div class="dropdown-content">
+                <a href="repair_parts.php">Запасные части</a>
+                <a href="supplies.php">Расходные материалы</a>
+                <a href="suppliers_and_producers.php">Поставщики</a>
+                <a href="order.php">Сделать заказ</a>
             </div>
         </div>
     </div>
-
-    <form action="index.php" method="get" id="nav-home"  novalidate>
-        <p><input type="submit" value="Домашняя страница"></p>
-    </form>
 </header>
 <!--<main>
     <form action="MainPageFinalVersion.php" method="get" id="form"  onsubmit="check(); return true;" novalidate>
