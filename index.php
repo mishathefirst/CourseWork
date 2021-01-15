@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles/nav-style.css">
+    <link rel="stylesheet" href="styles/slide-style.css">
     <title>Main page</title>
 </head>
 <body>
@@ -39,9 +40,44 @@
 </header>
 <main>
     <h1>Информационная система салона ретро-автомобилей</h1>
+    <script src="scripts/slide-script.js"></script>
+    <div class="slideshow-container">
 
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 4</div>
+            <img src="index-car1.svg" style="width:100%">
+        </div>
 
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 4</div>
+            <img src="index-car2.jpg" style="width:100%">
+        </div>
 
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 4</div>
+            <img src="index-car3.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">4 / 4</div>
+            <img src="index-car4.jpg" style="width:100%">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+    </div>
+
+    <script>
+        showSlides(1);
+    </script>
 
 </main>
 </body>
