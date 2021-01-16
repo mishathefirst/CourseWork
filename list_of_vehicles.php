@@ -37,8 +37,8 @@
         </div>
     </div>
 </header>
-<!--<main>
-    <form action="MainPageFinalVersion.php" method="get" id="form"  onsubmit="check(); return true;" novalidate>
+<main>
+    <form action="list_of_vehicles.php" method="get" id="form"  onsubmit="check(); return true;" novalidate>
 
         <label class="instructions" for="hidden_x"> Insert X: </label>
         <button type="button" class="button" name="button_x" value="-4" id="x_-4" onclick="document.getElementById('hidden_x').value = -4"> -4 </button>
@@ -72,18 +72,33 @@
             <input type="submit" value="Check the result.">
         </p>
     </form>
-    </main>-->
+    </main>
 <?php
-// Соединение, выбор базы данных
 $dbconn = pg_connect("host=localhost dbname=postgres user=postgres password=12032001")
 or die('Не удалось соединиться: ' . pg_last_error());
 
-// Выполнение SQL-запроса
-//echo (empty($_GET['country']));
+/*
 if (empty($_GET['country'])) {
     $query = 'SELECT * FROM ABSTR_CARS';
 } else {
     $query = 'SELECT * FROM ABSTR_CARS WHERE ABSTR_CARS.COUNTRY_OF_PRODUCTION=\''.$_GET['country'].'\'';
+}
+*/
+
+$previous_query = 0;
+$query = 'SELECT * FROM ABSTR_CARS';
+if (!(empty($_GET['country']) and empty($_GET['min_power']))) {
+    $query = $query.' WHERE ';
+    if (!empty($_GET['country'])){
+        $query = $query.'ABSTR_CARS.COUNTRY_OF_PRODUCTION=\''.$_GET['country'].'\'';
+        $previous_query = 1;
+    }
+    if ((!empty($_GET['min_power'])) and $previous_query == 0){
+        $query = $query.'ABSTR_CARS.ENGINE_POWER >= \''.$_GET['min_power'].'\'';
+        $previous_query = 1;
+    } elseif (!empty($_GET['min_power'])) {
+        $query = $query.' AND ABSTR_CARS.ENGINE_POWER >= \''.$_GET['min_power'].'\'';
+    }
 }
 $result = pg_query($query) or die('Ошибка запроса: ' . pg_last_error());
 
@@ -103,7 +118,7 @@ pg_free_result($result);
 
 // Закрытие соединения
 pg_close($dbconn);
-
+$previous_query = 0;
 ?>
 
 
