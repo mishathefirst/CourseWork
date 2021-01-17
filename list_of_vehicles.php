@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="styles/nav-style.css">
     <link rel="stylesheet" href="styles/filter-style.css">
     <link rel="stylesheet" href="styles/table-style.css">
+    <link rel="stylesheet" href="styles/edit-buttons-style.css">
     <title>Модели ретро-автомобилей</title>
 </head>
 <body>
@@ -68,7 +69,11 @@
 </main>
 
 
-
+<a class="edit-button" href="add_to_list_of_vehicles.php">Добавить автомобиль</a>
+<a class="edit-button" href="delete_from_list_of_vehicles.php">Удалить автомобиль</a>
+<br>
+<br>
+<br>
 <div id="table" class="table">
     <h1>Модели:</h1>
 
@@ -78,7 +83,7 @@
 
 
 <?php
-$dbconn = pg_connect("host=localhost dbname=postgres user=postgres password=")
+$dbconn = pg_connect("host=localhost dbname=postgres user=postgres password=12032001")
 or die('Не удалось соединиться: ' . pg_last_error());
 
 /*
