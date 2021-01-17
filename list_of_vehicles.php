@@ -78,7 +78,7 @@
 
 
 <?php
-$dbconn = pg_connect("host=localhost dbname=postgres user=postgres password=12032001")
+$dbconn = pg_connect("host=localhost dbname=postgres user=postgres password=")
 or die('Не удалось соединиться: ' . pg_last_error());
 
 /*
@@ -113,16 +113,53 @@ while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
     //echo "\t<tr class='table-block'>\n";
     echo "\t<div class='table-block'>\n";
     echo "\t<div class='table-content'>\n";
+    echo "<table>\n";
+    echo "\t<tr>\n";
     //echo "$line[1]";
     foreach ($line as $col_value) {
         //echo "\t\t<td>$col_value</td>\n";
         //echo "\t\t$line[0]\n";
         //echo "\t\t$col_value\n";
         if ($block_counter == 1) {
-            echo "ID: \t\t$col_value\n";
+            echo "\t<td class='car-id'>\n";
+            echo "\t\t$col_value\n";
+            echo "\t</td>\n";
             $block_counter++;
-        } elseif ($block_counter == 2 or $block_counter == 3) {
+        } elseif ($block_counter == 2) {
+            echo "\t<td class='car-model'>\n";
             echo "<h1>\t\t$col_value\n</h1>";
+            $block_counter++;
+        } elseif ($block_counter == 3) {
+            echo "<h1>\t\t$col_value\n</h1>";
+            echo "\t</td>\n";
+            $block_counter++;
+        } elseif ($block_counter == 4) {
+            echo "\t<td class='features'>\n";
+            echo "Начало производства: \t\t$col_value\n";
+            echo "<br>";
+            $block_counter++;
+        } elseif ($block_counter == 5) {
+            echo "Окончание производства: \t\t$col_value\n";
+            echo "<br>";
+            $block_counter++;
+        } elseif ($block_counter == 6) {
+            echo "Тираж: \t\t$col_value\n";
+            echo "\t</td>\n";
+            $block_counter++;
+        } elseif ($block_counter == 7) {
+            echo "\t<td class='features'>\n";
+            echo "Страна производства: \t\t$col_value\n";
+            echo "<br>";
+            $block_counter++;
+        } elseif ($block_counter == 8) {
+            $block_counter++;
+        } elseif ($block_counter == 9) {
+            echo "Мощность двигателя: \t\t$col_value\n";
+            echo "<br>";
+            $block_counter++;
+        } elseif ($block_counter == 10) {
+            echo "Тип трансмиссии: \t\t$col_value\n";
+            echo "\t</td>\n";
             $block_counter++;
         } else {
             echo "\t\t$col_value\n";
@@ -130,6 +167,8 @@ while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
         }
     }
     //echo "\t</tr>\n";
+    echo "\t</tr>\n";
+    echo "</table>\n";
     echo "\t</div>\n";
     echo "\t</div>\n";
     $block_counter = 1;

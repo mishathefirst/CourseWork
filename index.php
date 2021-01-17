@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles/nav-style.css">
     <link rel="stylesheet" href="styles/slide-style.css">
-    <title>Main page</title>
+    <title>Главная</title>
 </head>
 <body>
 <header>
