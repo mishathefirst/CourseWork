@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles/nav-style.css">
-    <title>Автомобили в наличии</title>
+    <title>Запасные части</title>
 </head>
 <body>
 <header>

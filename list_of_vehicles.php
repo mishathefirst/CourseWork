@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles/nav-style.css">
     <link rel="stylesheet" href="styles/filter-style.css">
+    <link rel="stylesheet" href="styles/table-style.css">
     <title>Модели ретро-автомобилей</title>
 </head>
 <body>
@@ -68,7 +69,7 @@
 
 
 
-<div id="table">
+<div id="table" class="table">
     <h1>Модели:</h1>
 
 
@@ -106,22 +107,40 @@ if (!(empty($_GET['country']) and empty($_GET['min_power']))) {
 $result = pg_query($query) or die('Ошибка запроса: ' . pg_last_error());
 
 // Вывод результатов в HTML
-echo "<table>\n";
+//echo "<table>\n";
+$block_counter = 1;
 while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-    echo "\t<tr>\n";
+    //echo "\t<tr class='table-block'>\n";
+    echo "\t<div class='table-block'>\n";
+    echo "\t<div class='table-content'>\n";
+    //echo "$line[1]";
     foreach ($line as $col_value) {
-        echo "\t\t<td>$col_value</td>\n";
+        //echo "\t\t<td>$col_value</td>\n";
+        //echo "\t\t$line[0]\n";
+        //echo "\t\t$col_value\n";
+        if ($block_counter == 1) {
+            echo "ID: \t\t$col_value\n";
+            $block_counter++;
+        } elseif ($block_counter == 2 or $block_counter == 3) {
+            echo "<h1>\t\t$col_value\n</h1>";
+            $block_counter++;
+        } else {
+            echo "\t\t$col_value\n";
+            $block_counter++;
+        }
     }
-    echo "\t</tr>\n";
+    //echo "\t</tr>\n";
+    echo "\t</div>\n";
+    echo "\t</div>\n";
+    $block_counter = 1;
 }
-echo "</table>\n";
+//echo "</table>\n";
 
-// Очистка результата
 pg_free_result($result);
 
-// Закрытие соединения
 pg_close($dbconn);
 $previous_query = 0;
+$block_counter = 1;
 ?>
 
 </div>
