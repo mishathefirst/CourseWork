@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles/nav-style.css">
+    <link rel="stylesheet" href="styles/filter-style.css">
+    <link rel="stylesheet" href="styles/table-style.css">
+    <link rel="stylesheet" href="styles/edit-buttons-style.css">
     <title>Автомобили в наличии</title>
 </head>
 <body>
@@ -39,9 +42,12 @@
 </header>
 
 <?php
-// Соединение, выбор базы данных
-$dbconn = pg_connect("host=localhost dbname=postgres user=postgres password=12032001")
+//$dbconn = pg_connect("host=localhost dbname=postgres user=postgres password=12032001")
+//or die('Не удалось соединиться: ' . pg_last_error());
+
+$dbconn = pg_connect("host=localhost port=19755 dbname=studs user=s265085 password=ble545")
 or die('Не удалось соединиться: ' . pg_last_error());
+
 
 // Выполнение SQL-запроса
 //echo (empty($_GET['country']));

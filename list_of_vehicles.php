@@ -83,16 +83,11 @@
 
 
 <?php
-$dbconn = pg_connect("host=localhost dbname=postgres user=postgres password=12032001")
-or die('Не удалось соединиться: ' . pg_last_error());
+//$dbconn = pg_connect("host=localhost dbname=postgres user=postgres password=12032001")
+//or die('Не удалось соединиться: ' . pg_last_error());
 
-/*
-if (empty($_GET['country'])) {
-    $query = 'SELECT * FROM ABSTR_CARS';
-} else {
-    $query = 'SELECT * FROM ABSTR_CARS WHERE ABSTR_CARS.COUNTRY_OF_PRODUCTION=\''.$_GET['country'].'\'';
-}
-*/
+$dbconn = pg_connect("host=localhost port=19755 dbname=studs user=s265085 password=ble545")
+or die('Не удалось соединиться: ' . pg_last_error());
 
 $previous_query = 0;
 $query = 'SELECT * FROM ABSTR_CARS';
