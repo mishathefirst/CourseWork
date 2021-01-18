@@ -46,6 +46,10 @@
         width: 500px;
     }
 </style>
+
+<div id="table" class="table">
+    <h1>Запасные части:</h1>
+
 <?php
 $dbconn = pg_connect("host=localhost dbname=postgres user=postgres password=12032001")
 or die('Не удалось соединиться: ' . pg_last_error());
@@ -136,5 +140,6 @@ $block_counter = 1;
         ИСиБД Ноговицын М.П., P33112
     </div>
 </footer>
+</div>
 </body>
 </html>
