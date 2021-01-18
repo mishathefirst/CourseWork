@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles/nav-style.css">
+    <link rel="stylesheet" href="styles/table-style.css">
     <link rel="stylesheet" href="styles/footer-style.css">
     <title>Запасные части</title>
 </head>
@@ -39,6 +40,93 @@
     </div>
 </header>
 
+
+<style>
+    .car-model {
+        width: 500px;
+    }
+</style>
+<?php
+$dbconn = pg_connect("host=localhost dbname=postgres user=postgres password=12032001")
+or die('Не удалось соединиться: ' . pg_last_error());
+
+//$dbconn = pg_connect("host=localhost port=19755 dbname=studs user=s265085 password=ble545")
+//or die('Не удалось соединиться: ' . pg_last_error());
+
+$previous_query = 0;
+$query = 'SELECT * FROM REPAIR_PARTS INNER JOIN ABSTR_CARS USING(ABSTR_CAR_ID)';
+
+$result = pg_query($query) or die('Ошибка запроса: ' . pg_last_error());
+
+// Вывод результатов в HTML
+$block_counter = 1;
+while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
+    echo "\t<div class='table-block'>\n";
+    echo "\t<div class='table-content'>\n";
+    echo "<table>\n";
+    echo "\t<tr>\n";
+    foreach ($line as $col_value) {
+
+        if ($block_counter == 2) {
+            echo "\t<td class='car-id'>\n";
+            echo "\t\t$col_value\n";
+            echo "\t</td>\n";
+            $block_counter++;
+        } elseif ($block_counter == 3) {
+            echo "\t<td class='car-model'>\n";
+            echo "<h1>\t\t$col_value\n</h1>";
+            $block_counter++;
+        } elseif ($block_counter == 4) {
+            echo "\t<td class='features'>\n";
+            if ($col_value == 't'){
+                echo "Б/У: Нет";
+            } else {
+                echo "Б/У: Да";
+            }
+            echo "<br>";
+            $block_counter++;
+        } elseif ($block_counter == 5) {
+            if ($col_value == 't'){
+                echo "На продажу: Да";
+            } else {
+                echo "На продажу: Нет";
+            }
+            echo "<br>";
+            echo "\t</td>\n";
+            $block_counter++;
+        } elseif ($block_counter == 7) {
+            echo "\t<td class='features'>\n";
+            echo "Цена: \t\t$col_value\n";
+            echo "<br>";
+            $block_counter++;
+        } elseif ($block_counter == 10) {
+            echo "Марка: \t\t$col_value\n";
+            echo "<br>";
+            $block_counter++;
+        } elseif ($block_counter == 11) {
+            echo "Модель: \t\t$col_value\n";
+            echo "\t</td>\n";
+            $block_counter++;
+        } else {
+            //echo "\t\t$col_value\n";
+            $block_counter++;
+        }
+    }
+    //echo "\t</tr>\n";
+    echo "\t</tr>\n";
+    echo "</table>\n";
+    echo "\t</div>\n";
+    echo "\t</div>\n";
+    $block_counter = 1;
+}
+//echo "</table>\n";
+
+pg_free_result($result);
+
+pg_close($dbconn);
+$previous_query = 0;
+$block_counter = 1;
+?>
 
 
 
