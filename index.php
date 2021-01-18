@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles/nav-style.css">
     <link rel="stylesheet" href="styles/slide-style.css">
+    <link rel="stylesheet" href="styles/footer-style.css">
     <title>Главная</title>
 </head>
 <body>
@@ -78,7 +79,13 @@
     <script>
         showSlides(1);
     </script>
+    <br>
 
 </main>
+<footer class="general-footer">
+    <div class="footer-content">
+        ИСиБД Ноговицын М.П., P33112
+    </div>
+</footer>
 </body>
 </html>

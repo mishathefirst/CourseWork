@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles/nav-style.css">
+    <link rel="stylesheet" href="styles/footer-style.css">
     <title>Обслуживаемые автомобили</title>
 </head>
 <body>
@@ -48,7 +49,11 @@
 
 
 
-
+<footer class="general-footer">
+    <div class="footer-content">
+        ИСиБД Ноговицын М.П., P33112
+    </div>
+</footer>
 </body>
 </html>
 

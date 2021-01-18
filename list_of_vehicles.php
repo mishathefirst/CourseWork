@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="styles/filter-style.css">
     <link rel="stylesheet" href="styles/table-style.css">
     <link rel="stylesheet" href="styles/edit-buttons-style.css">
+    <link rel="stylesheet" href="styles/footer-style.css">
     <title>Модели ретро-автомобилей</title>
 </head>
 <body>
@@ -83,11 +84,11 @@
 
 
 <?php
-//$dbconn = pg_connect("host=localhost dbname=postgres user=postgres password=12032001")
-//or die('Не удалось соединиться: ' . pg_last_error());
-
-$dbconn = pg_connect("host=localhost port=19755 dbname=studs user=s265085 password=ble545")
+$dbconn = pg_connect("host=localhost dbname=postgres user=postgres password=12032001")
 or die('Не удалось соединиться: ' . pg_last_error());
+
+//$dbconn = pg_connect("host=localhost port=19755 dbname=studs user=s265085 password=ble545")
+//or die('Не удалось соединиться: ' . pg_last_error());
 
 $previous_query = 0;
 $query = 'SELECT * FROM ABSTR_CARS';
@@ -183,5 +184,11 @@ $block_counter = 1;
 ?>
 
 </div>
+
+<footer class="general-footer">
+    <div class="footer-content">
+        ИСиБД Ноговицын М.П., P33112
+    </div>
+</footer>
 </body>
 </html>

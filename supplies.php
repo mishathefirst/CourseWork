@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="styles/nav-style.css">
     <link rel="stylesheet" href="styles/table-style.css">
+    <link rel="stylesheet" href="styles/footer-style.css">
     <title>Расходные материалы</title>
 </head>
 <body>
@@ -141,5 +142,12 @@ $block_counter = 1;
 
 
 </div>
+
+
+<footer class="general-footer">
+    <div class="footer-content">
+        ИСиБД Ноговицын М.П., P33112
+    </div>
+</footer>
 </body>
 </html>
