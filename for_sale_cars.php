@@ -42,6 +42,16 @@
     </div>
 </header>
 
+
+<a class="edit-button" href="add_to_for_sale_cars.php">Добавить автомобиль</a>
+<a class="edit-button" href="delete_from_for_sale_cars.php">Удалить автомобиль</a>
+<br>
+<br>
+<br>
+<div id="table" class="table">
+    <h1>Автомобили в наличии:</h1>
+
+
 <?php
 $dbconn = pg_connect("host=localhost dbname=postgres user=postgres password=12032001")
 or die('Не удалось соединиться: ' . pg_last_error());
@@ -80,7 +90,7 @@ pg_close($dbconn);
 
 
 
-
+</div>
 <footer class="general-footer">
     <div class="footer-content">
         ИСиБД Ноговицын М.П., P33112
