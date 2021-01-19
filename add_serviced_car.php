@@ -65,11 +65,11 @@
 
 
     <?php
-    $dbconn = pg_connect("host=localhost dbname=postgres user=postgres password=12032001")
-    or die('Не удалось соединиться: ' . pg_last_error());
-
-    //$dbconn = pg_connect("host=localhost port=19755 dbname=studs user=s265085 password=ble545")
+    //$dbconn = pg_connect("host=localhost dbname=postgres user=postgres password=12032001")
     //or die('Не удалось соединиться: ' . pg_last_error());
+
+    $dbconn = pg_connect("host=localhost port=19755 dbname=studs user=s265085 password=ble545")
+    or die('Не удалось соединиться: ' . pg_last_error());
 
 
     if (!empty($_GET['car_id'])) {

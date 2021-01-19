@@ -34,7 +34,7 @@
                 <a href="repair_parts.php">Запасные части</a>
                 <a href="supplies.php">Расходные материалы</a>
                 <a href="suppliers_and_producers.php">Поставщики</a>
-                <a href="order.php">Сделать заказ</a>
+                <!--<a href="order.php">Сделать заказ</a>-->
             </div>
         </div>
     </div>
@@ -51,11 +51,11 @@
     <h1>Запасные части:</h1>
 
 <?php
-$dbconn = pg_connect("host=localhost dbname=postgres user=postgres password=12032001")
-or die('Не удалось соединиться: ' . pg_last_error());
-
-//$dbconn = pg_connect("host=localhost port=19755 dbname=studs user=s265085 password=ble545")
+//$dbconn = pg_connect("host=localhost dbname=postgres user=postgres password=12032001")
 //or die('Не удалось соединиться: ' . pg_last_error());
+
+$dbconn = pg_connect("host=localhost port=19755 dbname=studs user=s265085 password=ble545")
+or die('Не удалось соединиться: ' . pg_last_error());
 
 $previous_query = 0;
 $query = 'SELECT * FROM REPAIR_PARTS INNER JOIN ABSTR_CARS USING(ABSTR_CAR_ID)';

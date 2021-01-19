@@ -45,11 +45,11 @@
     if (!empty($_GET['car_id'])) {
 
         if ($_GET['status'] == 'unset') {
-            $dbconn = pg_connect("host=localhost dbname=postgres user=postgres password=12032001")
-            or die('Не удалось соединиться: ' . pg_last_error());
-
-            //$dbconn = pg_connect("host=localhost port=19755 dbname=studs user=s265085 password=ble545")
+            //$dbconn = pg_connect("host=localhost dbname=postgres user=postgres password=12032001")
             //or die('Не удалось соединиться: ' . pg_last_error());
+
+            $dbconn = pg_connect("host=localhost port=19755 dbname=studs user=s265085 password=ble545")
+            or die('Не удалось соединиться: ' . pg_last_error());
 
             $query = 'UPDATE SERVICED_CARS SET IS_SERVICED=false WHERE SERVICED_CAR_ID='.$_GET['car_id'];
             $result = pg_query($query) or die('Ошибка запроса: ' . pg_last_error());
@@ -63,11 +63,11 @@
             pg_free_result($result);
             pg_close($dbconn);
         } else {
-            $dbconn = pg_connect("host=localhost dbname=postgres user=postgres password=12032001")
-            or die('Не удалось соединиться: ' . pg_last_error());
-
-            //$dbconn = pg_connect("host=localhost port=19755 dbname=studs user=s265085 password=ble545")
+            //$dbconn = pg_connect("host=localhost dbname=postgres user=postgres password=12032001")
             //or die('Не удалось соединиться: ' . pg_last_error());
+
+            $dbconn = pg_connect("host=localhost port=19755 dbname=studs user=s265085 password=ble545")
+            or die('Не удалось соединиться: ' . pg_last_error());
 
 
 
