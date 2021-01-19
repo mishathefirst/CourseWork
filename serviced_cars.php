@@ -43,7 +43,7 @@
 
 
 <a class="edit-button" href="add_serviced_car.php">Зарегистрировать новое обслуживание автомобиля</a>
-<a class="edit-button" href="change_service_status.php">Завершить обслуживание автомобиля</a>
+<a class="edit-button" href="change_service_status.php">Изменить статус обслуживания автомобиля</a>
 <br>
 <br>
 <br>
